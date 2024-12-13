@@ -15,10 +15,9 @@ export const tokenProvider = async () => {
 
     const streamClient = new StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
 
-    const expirationTime = Math.floor(Date.now() / 1000) + 3600;
-    const issuedAt = Math.floor(Date.now() / 1000) - 60;
+    const exp = Math.floor(Date.now() / 1000) + 3600;
+    const iat = Math.floor(Date.now() / 1000) - 60;
 
-    const token = streamClient.createToken(user.id, expirationTime, issuedAt);
-
+    const token = streamClient.generateUserToken({ user_id: user.id, exp, iat});
     return token;
 };

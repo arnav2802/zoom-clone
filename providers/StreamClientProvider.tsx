@@ -31,7 +31,6 @@ const StreamVideoProviderApp = ({ children } : { children: ReactNode}) => {
     return (
         <StreamVideo client={videoClient}>
             {children}
-
         </StreamVideo>
     );
 };
