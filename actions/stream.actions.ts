@@ -17,7 +17,8 @@ export const tokenProvider = async () => {
 
     const exp = Math.floor(Date.now() / 1000) + 3600;
     const iat = Math.floor(Date.now() / 1000) - 60;
+    const validity_in_seconds = Math.floor(Date.now() / 1000) + 3600;
 
-    const token = streamClient.generateUserToken({ user_id: user.id, exp, iat});
+    const token = streamClient.generateUserToken({ user_id: user.id, validity_in_seconds, exp, iat});
     return token;
 };
