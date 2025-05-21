@@ -1,8 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-const MeetingRoom = ({ params }: { params: { id: string } }) => {
-  return <div>Meeting Room: #{params.id}</div>;
+export default async function Meeting({ params }: { params: { id: string } }) {
+  const { id } = params; // Ensure params is awaited
 
-};
-
-export default MeetingRoom;
+  return <div>Meeting Room: #{id}</div>;
+}
